@@ -145,6 +145,8 @@ def target_real_feature_binary_test(x, y):
     :raise: ``ValueError`` if the feature is not binary.
     """
     __check_if_pandas_series(x, y)
+    x = x[~x.isnull()]
+    y = y[x[~x.isnull()].index]
     _check_for_nans(x, y)
 
     # Check for correct value range
@@ -178,6 +180,8 @@ def target_real_feature_real_test(x, y):
     :rtype: float
     """
     __check_if_pandas_series(x, y)
+    x = x[~x.isnull()]
+    y = y[x[~x.isnull()].index]
     _check_for_nans(x, y)
 
     tau, p_value = stats.kendalltau(x, y, method="asymptotic")
