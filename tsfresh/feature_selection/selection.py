@@ -145,7 +145,7 @@ def select_features(
              or `ml_task` is not one of `'auto'`, `'classification'` or `'regression'`.
     """
     assert isinstance(X, pd.DataFrame), "Please pass features in X as pandas.DataFrame."
-    check_for_nans_in_columns(X)
+    # check_for_nans_in_columns(X)
     assert isinstance(y, (pd.Series, np.ndarray)), (
         "The type of target vector y must be one of: " "pandas.Series, numpy.ndarray"
     )
